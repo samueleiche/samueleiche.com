@@ -6,6 +6,8 @@
 		<title>Samuel Eiche</title>
 	</head>
 	<body>
+		<% if (env.MODE === 'production') { %> %VITE_GTM_ID% <% } %>
+
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>
