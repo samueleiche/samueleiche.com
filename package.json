@@ -9,7 +9,7 @@
         "preview": "vite preview"
     },
     "devDependencies": {
-        "@types/animejs": "^3.1.10",
+        "@types/animejs": "^3.1.11",
         "@typescript-eslint/eslint-plugin": "^6.9.1",
         "@typescript-eslint/parser": "^6.9.1",
         "eslint-config-prettier": "^9.0.0",
