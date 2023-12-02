@@ -20,6 +20,6 @@
         "vite-plugin-ejs": "^1.7.0"
     },
     "dependencies": {
-        "animejs": "^3.2.1"
+        "animejs": "^3.2.2"
     }
 }
