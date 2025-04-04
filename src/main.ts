@@ -1,5 +1,5 @@
 import './style.css'
-import anime from 'animejs'
+import { animate } from 'animejs'
 
 const nameElement = document.querySelector('.logo') as HTMLElement
 const nameElementPaths = Array.from(nameElement.querySelectorAll('path'))
@@ -11,25 +11,39 @@ const nameElementPathsToMorph = [
 
 let isPointerDown = false
 
-const animation = anime({
-	targets: nameElementPaths,
-	d: (el: SVGPathElement, i: number) => nameElementPathsToMorph[i],
-	easing: 'easeInOutQuint',
+const animation = animate(nameElementPaths, {
+	d: (_, i: number) => nameElementPathsToMorph[i],
+	ease: 'inOutQuint',
 	duration: 500,
 	autoplay: false,
 })
 
-const toggleAnimation = () => {
+function toggleAnimation() {
+	// if (!animation.completed && animation.began) {
+	// 	return
+	// }
+
 	if (animation.began) {
+		const { began, paused, completed, backwards } = animation
+		console.log({ began, paused, completed, backwards, animation })
+	}
+
+	if (animation.began && !animation.backwards) {
 		animation.reverse()
 	}
 
+	console.log({ backwards: animation.backwards })
+
 	if (animation.paused) {
-		animation.play()
+		// if (animation.backwards) {
+		// 	animation.reset()
+		// }
+
+		animation.restart()
 	}
 }
 
-const onPointerEvent = (event: Event) => {
+function onPointerEvent(event: Event) {
 	const { type } = event
 
 	if (type === 'touchstart') {
@@ -55,8 +69,13 @@ const onPointerEvent = (event: Event) => {
 	toggleAnimation()
 }
 
-const elementEvents = ['touchstart', 'mouseenter', 'mouseleave', 'mousedown']
-const windowEvents = ['touchend', 'mouseup']
+// const elementEvents = ['touchstart', 'mouseenter', 'mouseleave', 'mousedown']
+const elementEvents = ['mousedown']
+// const windowEvents = ['touchend', 'mouseup']
+const windowEvents = ['mouseup']
 
-elementEvents.forEach((event) => nameElement.addEventListener(event, onPointerEvent, false))
-windowEvents.forEach((event) => window.addEventListener(event, onPointerEvent, false))
+// elementEvents.forEach((event) => nameElement.addEventListener(event, onPointerEvent, false))
+// windowEvents.forEach((event) => window.addEventListener(event, onPointerEvent, false))
+
+document.body.addEventListener('mousedown', toggleAnimation)
+document.body.addEventListener('mouseup', toggleAnimation)
