@@ -1,55 +1,56 @@
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Samuel Eiche</title>
+		<meta name="author" content="Samuel Eiche" />
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Samuel Eiche</title>
-	<meta name="author" content="Samuel Eiche">
+		<% if (env.MODE === 'production') { %>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GTM_ID%"></script>
+		<script>
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag('js', new Date())
+			gtag('config', '%VITE_GTM_ID%')
+		</script>
+		<% } %>
 
-	<% if (env.MODE === 'production') { %>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GTM_ID%"></script>
-	<script>
-		window.dataLayer = window.dataLayer || []
-		function gtag() {
-			dataLayer.push(arguments)
-		}
-		gtag('js', new Date())
-		gtag('config', '%VITE_GTM_ID%')
-	</script>
-	<% } %>
+		<script type="application/ld+json">
+			{
+				"@context" : "https://schema.org",
+				"@type": "WebSite",
+				"name": "Samuel Eiche",
+				"url" : "https://samueleiche.com"
+				"description": "Samuel Eiche's Portfolio"
+			}
+		</script>
 
-	<script type="application/ld+json">
-	{
-		"@context" : "https://schema.org",
-		"@type": "WebSite",
-		"name": "Samuel Eiche",
-		"url" : "https://samueleiche.com"
-		"description": "Samuel Eiche's Portfolio"
-	}
-	</script>
+		<meta property="og:title" content="Samuel Eiche" />
+		<meta name="twitter:title" content="Samuel Eiche" />
+		<meta name="description" content="Samuel Eiche's Portfolio" />
+		<meta property="og:description" content="Samuel Eiche's Portfolio" />
+		<meta name="twitter:description" content="Samuel Eiche's Portfolio" />
+	</head>
 
-	<meta property="og:title" content="Samuel Eiche">
-	<meta name="twitter:title" content="Samuel Eiche">
-	<meta name="description" content="Samuel Eiche's Portfolio">
-	<meta property="og:description" content="Samuel Eiche's Portfolio">
-	<meta name="twitter:description" content="Samuel Eiche's Portfolio">
-</head>
+	<body>
+		<svg class="logo" viewBox="0 0 116 36.95" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M42.45,10.5c-0.5,-2.5,-1.717,-3.75,-3.65,-3.75h-27.7c-1.034,0,-1.892,0.425,-2.575,1.275c-0.684,0.85,-1.025,1.775,-1.025,2.775c0,1.067,0.333,2.059,1,2.975c0.667,0.917,1.533,1.375,2.6,1.375h27.7c2.033,0,3.892,0.475,5.575,1.425c1.683,0.95,3.017,2.225,4,3.825c0.983,1.6,1.475,3.317,1.475,5.15c0,1.967,-0.467,3.825,-1.4,5.575c-0.934,1.75,-2.234,3.159,-3.9,4.225c-1.667,1.067,-3.583,1.6,-5.75,1.6h-27.7c-2.067,0,-3.917,-0.458,-5.55,-1.375c-1.633,-0.917,-2.942,-2.183,-3.925,-3.8c-0.983,-1.616,-1.525,-3.408,-1.625,-5.375c0,-0.367,0.183,-0.55,0.55,-0.55h6.3c0.333,0,0.533,0.184,0.6,0.55c0.033,1,0.366,1.883,1,2.65c0.633,0.767,1.516,1.15,2.65,1.15h27.7c1.1,0,2.008,-0.425,2.725,-1.275c0.716,-0.85,1.075,-1.808,1.075,-2.875c0,-1.1,-0.359,-2.075,-1.075,-2.925c-0.717,-0.85,-1.625,-1.275,-2.725,-1.275h-27.7c-1.967,0,-3.8,-0.491,-5.5,-1.475c-1.7,-0.982,-3.05,-2.291,-4.05,-3.925c-1,-1.633,-1.5,-3.383,-1.5,-5.25c0,-1.9,0.492,-3.716,1.475,-5.45c0.983,-1.732,2.325,-3.125,4.025,-4.175c1.7,-1.05,3.55,-1.575,5.55,-1.575h27.7c1.9,0,3.675,0.475,5.325,1.425c1.65,0.95,3,2.225,4.05,3.825c1.05,1.6,1.625,3.35,1.725,5.25c0,0.367,-0.184,0.55,-0.55,0.55h-6.3c-0.367,0,-0.567,-0.183,-0.6,-0.55z"
+			/>
+			<path
+				d="M77.95,36.55c0,0.267,-0.167,0.4,-0.5,0.4h-6.65c-0.333,0,-0.517,-0.167,-0.55,-0.5l-1.05,-4.95h-7.75l-1.05,4.95c-0.1,0.333,-0.3,0.5,-0.6,0.5h-6.6c-0.434,0,-0.6,-0.216,-0.5,-0.65l8.25,-35.8c0.033,-0.333,0.233,-0.5,0.6,-0.5h7.55c0.333,0,0.517,0.167,0.55,0.5l8.25,35.8l0.05,0.25zm-10.3,-12.15l-2.35,-10.75l-2.3,10.75h4.65z"
+			/>
+			<path
+				d="M116,0.55v35.85c0,0.367,-0.184,0.55,-0.55,0.55h-6.3c-0.367,0,-0.55,-0.183,-0.55,-0.55v-27.1l-7.1,27.15c-0.1,0.333,-0.3,0.5,-0.6,0.5h-5.2c-0.3,0,-0.5,-0.167,-0.6,-0.5l-6.65,-26.75v26.7c0,0.367,-0.184,0.55,-0.55,0.55h-6.3c-0.367,0,-0.55,-0.183,-0.55,-0.55v-35.85c0,-0.366,0.182,-0.55,0.55,-0.55h10.75c0.3,0,0.5,0.167,0.6,0.5l5.45,23.4l5.85,-23.4c0.1,-0.333,0.3,-0.5,0.6,-0.5h10.6c0.366,0,0.55,0.184,0.55,0.55z"
+			/>
+		</svg>
 
-<body>
-	<svg class="logo" viewBox="0 0 116 36.95" xmlns="http://www.w3.org/2000/svg">
-		<path
-			d="M42.45,10.5c-0.5,-2.5,-1.717,-3.75,-3.65,-3.75h-27.7c-1.034,0,-1.892,0.425,-2.575,1.275c-0.684,0.85,-1.025,1.775,-1.025,2.775c0,1.067,0.333,2.059,1,2.975c0.667,0.917,1.533,1.375,2.6,1.375h27.7c2.033,0,3.892,0.475,5.575,1.425c1.683,0.95,3.017,2.225,4,3.825c0.983,1.6,1.475,3.317,1.475,5.15c0,1.967,-0.467,3.825,-1.4,5.575c-0.934,1.75,-2.234,3.159,-3.9,4.225c-1.667,1.067,-3.583,1.6,-5.75,1.6h-27.7c-2.067,0,-3.917,-0.458,-5.55,-1.375c-1.633,-0.917,-2.942,-2.183,-3.925,-3.8c-0.983,-1.616,-1.525,-3.408,-1.625,-5.375c0,-0.367,0.183,-0.55,0.55,-0.55h6.3c0.333,0,0.533,0.184,0.6,0.55c0.033,1,0.366,1.883,1,2.65c0.633,0.767,1.516,1.15,2.65,1.15h27.7c1.1,0,2.008,-0.425,2.725,-1.275c0.716,-0.85,1.075,-1.808,1.075,-2.875c0,-1.1,-0.359,-2.075,-1.075,-2.925c-0.717,-0.85,-1.625,-1.275,-2.725,-1.275h-27.7c-1.967,0,-3.8,-0.491,-5.5,-1.475c-1.7,-0.982,-3.05,-2.291,-4.05,-3.925c-1,-1.633,-1.5,-3.383,-1.5,-5.25c0,-1.9,0.492,-3.716,1.475,-5.45c0.983,-1.732,2.325,-3.125,4.025,-4.175c1.7,-1.05,3.55,-1.575,5.55,-1.575h27.7c1.9,0,3.675,0.475,5.325,1.425c1.65,0.95,3,2.225,4.05,3.825c1.05,1.6,1.625,3.35,1.725,5.25c0,0.367,-0.184,0.55,-0.55,0.55h-6.3c-0.367,0,-0.567,-0.183,-0.6,-0.55z" />
-		<path
-			d="M77.95,36.55c0,0.267,-0.167,0.4,-0.5,0.4h-6.65c-0.333,0,-0.517,-0.167,-0.55,-0.5l-1.05,-4.95h-7.75l-1.05,4.95c-0.1,0.333,-0.3,0.5,-0.6,0.5h-6.6c-0.434,0,-0.6,-0.216,-0.5,-0.65l8.25,-35.8c0.033,-0.333,0.233,-0.5,0.6,-0.5h7.55c0.333,0,0.517,0.167,0.55,0.5l8.25,35.8l0.05,0.25zm-10.3,-12.15l-2.35,-10.75l-2.3,10.75h4.65z" />
-		<path
-			d="M116,0.55v35.85c0,0.367,-0.184,0.55,-0.55,0.55h-6.3c-0.367,0,-0.55,-0.183,-0.55,-0.55v-27.1l-7.1,27.15c-0.1,0.333,-0.3,0.5,-0.6,0.5h-5.2c-0.3,0,-0.5,-0.167,-0.6,-0.5l-6.65,-26.75v26.7c0,0.367,-0.184,0.55,-0.55,0.55h-6.3c-0.367,0,-0.55,-0.183,-0.55,-0.55v-35.85c0,-0.366,0.182,-0.55,0.55,-0.55h10.75c0.3,0,0.5,0.167,0.6,0.5l5.45,23.4l5.85,-23.4c0.1,-0.333,0.3,-0.5,0.6,-0.5h10.6c0.366,0,0.55,0.184,0.55,0.55z" />
-	</svg>
+		<h1>samuel@samueleiche.com</h1>
 
-	<h1>samuel@samueleiche.com</h1>
-
-	<script type="module" src="/src/main.ts"></script>
-</body>
-
+		<script type="module" src="/src/main.ts"></script>
+	</body>
 </html>
