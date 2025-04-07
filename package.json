@@ -1,20 +1,23 @@
 {
     "name": "samueleiche.com",
     "private": true,
-    "version": "1.0.0",
+    "version": "1.1.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
+        "lint": "eslint \"**/*.{ts,js}\" --fix",
+        "prettier": "prettier --write \"**/*.{js,ts,css,scss}\" ",
         "build": "tsc && vite build",
         "preview": "vite preview"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^8.29.0",
-        "@typescript-eslint/parser": "^8.29.0",
+        "eslint": "^9.24.0",
         "eslint-config-prettier": "^10.1.1",
         "eslint-plugin-prettier": "^5.2.6",
+        "globals": "^16.0.0",
         "prettier": "^3.5.3",
         "typescript": "^5.8.2",
+        "typescript-eslint": "^8.29.0",
         "vite": "^6.2.5",
         "vite-plugin-ejs": "^1.7.0"
     },
