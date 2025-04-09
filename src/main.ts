@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 
 	setup.animation = animate(svgElementPaths, {
-		d: (_: any /** SVGPathElement */, i: number) => svgElementPathsToMorph[i],
+		d: (_: any /** SVGPathElement */, i: number) => ({ to: svgElementPathsToMorph[i] }),
 		ease: 'inOutQuart',
 		duration: 500,
 		delay: 200,
