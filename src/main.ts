@@ -1,3 +1,4 @@
+import './reset.css'
 import './style.css'
 import { animate, type JSAnimation, createDraggable, createSpring } from 'animejs'
 

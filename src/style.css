@@ -1,33 +1,12 @@
-:root {
-	--text-color: #1a202c;
-}
-
-body,
-html {
-	height: 100%;
-	overflow: hidden;
-}
-
 body {
-	margin: 0;
 	padding: 0 3vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	font-family:
-		system-ui,
-		-apple-system,
-		BlinkMacSystemFont,
-		'Segoe UI',
-		Roboto,
-		'Helvetica Neue',
-		Arial,
-		'Noto Sans',
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji',
-		'Segoe UI Symbol',
-		'Noto Color Emoji';
+}
+
+:root {
+	--text-color: #1a202c;
 }
 
 .logo {
