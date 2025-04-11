@@ -1,9 +1,10 @@
 import './reset.css'
 import './style.css'
-import { animate, type JSAnimation, createDraggable, createSpring } from 'animejs'
+import { type JSAnimation, animate, createDraggable, createSpring, createTimeline } from 'animejs'
 
-const noop = () => {}
-const setup: { animation?: JSAnimation } = {}
+const isMobile = () => window.matchMedia('(max-width: 767px)').matches
+
+let animation: JSAnimation | undefined = undefined
 
 document.addEventListener('DOMContentLoaded', () => {
 	const svgElement = getSVG()
@@ -14,34 +15,46 @@ document.addEventListener('DOMContentLoaded', () => {
 		'M116,0.55v35.85c0,0.367,-0.184,0.55,-0.55,0.55h-6.3c-0.367,0,-0.55,-0.183,-0.55,-0.55v-26.6l-19.7,26.8c-0.155,0.203,-0.334,0.35,-0.7,0.35h-6.15c-0.333,0,-0.485,-0.121,-0.649,-0.35l-19.701,-26.45v26.25c0,0.367,-0.184,0.55,-0.551,0.55h-6.3c-0.367,0,-0.55,-0.183,-0.55,-0.55v-35.85c0.001,-0.366,0.183,-0.55,0.551,-0.55h9.7c0.267,0,0.424,0.133,0.6,0.4l20.05,28.45l20.35,-28.45c0.175,-0.263,0.301,-0.4,0.601,-0.4h9.3c0.365,0,0.549,0.184,0.549,0.55z',
 	]
 
+	animation = animate(svgElementPaths, {
+		d: (_: any /** SVGPathElement */, i: number) => ({ to: svgElementPathsToMorph[i] }),
+		ease: 'inOutBack(2.4)',
+		duration: 600,
+	})
+
+	const timeline = createTimeline({
+		delay: 300,
+		autoplay: true,
+	})
+
+	timeline
+		.sync(animation)
+		.call(() => animation!.reverse(), 600)
+		.add(
+			svgElement,
+			{
+				width: isMobile() ? '40%' : '15%',
+				top: '0%',
+				translateY: '0%',
+				ease: 'inOutQuart',
+				duration: 600,
+			},
+			1200,
+		)
+		.call(() => onTimelineEnd(), 1800)
+})
+
+function onTimelineEnd() {
+	const svgElement = getSVG()
+	const pointerDownEvents = ['touchstart', 'mousedown']
+	const pointerUpEvents = ['touchend', 'mouseup']
+
+	pointerDownEvents.forEach((e) => svgElement.addEventListener(e, onPointerDown, false))
+	pointerUpEvents.forEach((e) => window.addEventListener(e, onPointerUp, false))
+
 	createDraggable(svgElement, {
 		container: [0, 0, 0, 0],
 		releaseEase: createSpring({ stiffness: 150 }),
 	})
-
-	setup.animation = animate(svgElementPaths, {
-		d: (_: any /** SVGPathElement */, i: number) => ({ to: svgElementPathsToMorph[i] }),
-		ease: 'inOutQuart',
-		duration: 500,
-		delay: 200,
-		autoplay: true,
-		onComplete(animation) {
-			animation.reverse()
-
-			if (animation.completed) {
-				animation.onComplete = noop
-				initListeners()
-			}
-		},
-	})
-})
-
-function initListeners() {
-	const pointerDownEvents = ['touchstart', 'mousedown']
-	const pointerUpEvents = ['touchend', 'mouseup']
-
-	pointerDownEvents.forEach((e) => getSVG().addEventListener(e, onPointerDown, false))
-	pointerUpEvents.forEach((e) => window.addEventListener(e, onPointerUp, false))
 }
 
 function onPointerDown(event: Event) {
@@ -49,12 +62,12 @@ function onPointerDown(event: Event) {
 		event.preventDefault()
 	}
 
-	setup.animation!.play()
+	animation!.play()
 }
 
 function onPointerUp() {
-	if (setup.animation!.began) {
-		setup.animation!.reverse()
+	if (animation!.began) {
+		animation!.reverse()
 	}
 }
 

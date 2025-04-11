@@ -1,20 +1,12 @@
-body {
-	padding: 0 3vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
 :root {
 	--text-color: #1a202c;
 }
 
 .logo {
+	position: absolute;
 	display: block;
-	margin-top: 21px;
-	width: 100%;
+	padding: 16px;
 	cursor: pointer;
-	transform: translateZ(0);
 	user-select: none;
 }
 
